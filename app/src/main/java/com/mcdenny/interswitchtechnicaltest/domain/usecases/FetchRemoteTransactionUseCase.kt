@@ -5,6 +5,7 @@ import com.mcdenny.interswitchtechnicaltest.domain.model.Resource
 import com.mcdenny.interswitchtechnicaltest.domain.repository.LocalRepository
 import com.mcdenny.interswitchtechnicaltest.domain.repository.RemoteRepository
 import kotlinx.coroutines.flow.flow
+import timber.log.Timber
 import javax.inject.Inject
 
 class FetchRemoteTransactionUseCase @Inject constructor(
@@ -20,6 +21,7 @@ class FetchRemoteTransactionUseCase @Inject constructor(
             local.insertTransaction(response.response)
             emit(Resource.Success(response.response))
         } catch (throwable: Throwable) {
+            Timber.e("Error: $throwable")
             emit(Resource.Error(throwable.resolveError()))
         }
     }

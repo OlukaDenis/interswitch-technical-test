@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022   Denis Oluka
+ * Copyright (c) 2022 Denis Oluka
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,25 +20,9 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.data.remote.di
+package com.mcdenny.interswitchtechnicaltest.domain.model
 
-import com.mcdenny.interswitchtechnicaltest.data.remote.ApiService
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
-import javax.inject.Singleton
-
-@Module
-@InstallIn(SingletonComponent::class)
-class ServiceModule {
-
-    @Provides
-    @Singleton
-    internal fun provideApiService(
-        retrofit: Retrofit
-    ): ApiService {
-        return retrofit.create(ApiService::class.java)
-    }
-}
+data class ErrorMessage(
+    val responseCode: Long,
+    val responseMessage: String
+)
