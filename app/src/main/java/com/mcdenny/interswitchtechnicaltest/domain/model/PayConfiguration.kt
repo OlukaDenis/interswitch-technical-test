@@ -1,0 +1,15 @@
+package com.mcdenny.interswitchtechnicaltest.domain.model
+
+data class PayConfiguration(
+    val bandCode: String,
+    val hasExcise: Boolean,
+    val hasServiceCharge: Boolean,
+    val hasWithholdingTax: Boolean,
+    val isPayVAT: Boolean,
+    val itemFeeMapSettingId: Long,
+    val maximumFeeBorn: Double,
+    val minimumFeeBorn: Double,
+    val payType: String,
+    val payValue: Double,
+    val source: String
+)

@@ -44,6 +44,8 @@ android {
                 ),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", "\"${Versions.BASE_URL}\"")
         }
     }
 

@@ -8,17 +8,7 @@ object Versions {
     const val NAVIGATION = "2.3.5"
     const val FLOW_BINDING = "1.0.0-beta02"
 
-    const val  STAGING_VERSION_CODE = 11
-    const val  STAGING_VERSION_NAME = "1.1.1"
-
-    const val BEVANDE_WEBSITE = "https://bevande.app"
-    const val DYNAMIC_LINK_URL = "https://bevande.page.link"
-
-    const val  PRODUCTION_VERSION_CODE = 1
-    const val  PRODUCTION_VERSION_NAME = "1.0.0"
-
-    const val PRODUCTION_URL = "http://207.154.253.37/bevande/api/public/"
-    const val STAGING_URL = "http://207.154.253.37/bevande/api/public/"
+    const val BASE_URL = "https://iswapigateway-develop.azurewebsites.net/qt-api/Item/fee/"
 
     object Ktlint {
         const val CORE = "0.33.0"
