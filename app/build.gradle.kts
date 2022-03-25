@@ -36,7 +36,11 @@ android {
     }
 
     buildTypes {
-        release {
+        named("debug") {
+            buildConfigField("String", "BASE_URL", "\"${Versions.BASE_URL}\"")
+        }
+
+        named("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile(

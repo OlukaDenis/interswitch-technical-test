@@ -6,7 +6,7 @@ object Dependencies {
     }
 
     object ProjectConstants {
-        const val BASE = "com.bevande.client"
+        const val BASE = "com.mcdenny.interswitchtechnicaltest"
         const val MINIMUM_SDK = 21
         const val COMPILE_SDK = 31
         const val TARGET_SDK = 31

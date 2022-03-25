@@ -1,15 +1,19 @@
 package com.mcdenny.interswitchtechnicaltest.domain.model
 
-data class Response(
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "transactions")
+data class Transaction(
+    @PrimaryKey
+    val id: Long,
     val excise: Double,
     val exciseTaxAccount: String,
     val feeGroups: List<FeeGroup>,
     val hasProviderServiceCharge: Boolean,
-    val id: Long,
     val isActive: Boolean,
     val isInclusiveInAmount: Boolean,
     val issueDate: String,
-    val itemFeeMapSettings: List<Any>?,
     val name: String,
     val overrideBillerFee: Boolean,
     val payConfiguration: List<PayConfiguration>,
