@@ -1,8 +1,9 @@
 package com.mcdenny.interswitchtechnicaltest.domain.repository
 
+import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteResponseEntity
 import com.mcdenny.interswitchtechnicaltest.domain.model.ResponseEntity
 
 interface RemoteRepository {
 
-    suspend fun fetchTransaction(transactionId: Long): ResponseEntity
+    suspend fun fetchTransaction(transactionId: Long): RemoteResponseEntity
 }
