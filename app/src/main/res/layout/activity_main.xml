@@ -1,18 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.ui.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:cardCornerRadius="@dimen/spacing_0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_18"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardClearItems"
+                android:layout_width="@dimen/spacing_45"
+                android:layout_height="@dimen/spacing_45"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/spacing_8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:cardCornerRadius="@dimen/spacing_30"
+                app:cardElevation="@dimen/spacing_0">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/spacing_30"
+                    android:layout_height="@dimen/spacing_30"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_baseline_delete_forever_24"
+                    android:contentDescription="@string/delete_icon"/>
+
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginTop="?actionBarSize"
+       android:padding="@dimen/spacing_16">
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/tilSearch"
+           android:layout_width="0dp"
+           style="@style/CustomTextInputStyle"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toStartOf="@id/guideline"
+           android:layout_marginEnd="@dimen/spacing_16">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/etSearch"
+               style="@style/DefaultEditTextStyle"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textCursorDrawable="?colorPrimary"
+               android:hint="@string/enter_item_fee_id"
+               android:inputType="number"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <androidx.constraintlayout.widget.Guideline
+           android:id="@+id/guideline"
+           android:layout_width="1dp"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           app:layout_constraintGuide_percent="0.7"/>
+
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/btnFind"
+           android:layout_width="0dp"
+           style="@style/PrimaryBtnStyle"
+           android:layout_height="wrap_content"
+           android:textColor="@color/white"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="@id/tilSearch"
+           app:layout_constraintStart_toEndOf="@id/guideline"
+           app:layout_constraintBottom_toBottomOf="@id/tilSearch"
+           android:text="@string/find"/>
+
+       <com.google.android.material.card.MaterialCardView
+           android:id="@+id/cardContent"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/spacing_16"
+           app:cardCornerRadius="@dimen/spacing_8"
+           app:layout_constraintTop_toBottomOf="@+id/tilSearch">
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:padding="@dimen/spacing_16">
+
+               <com.google.android.material.textview.MaterialTextView
+                   android:id="@+id/mtvTitleLabel"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/transaction_details"
+                   android:textStyle="bold"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"/>
+
+               <com.google.android.material.textview.MaterialTextView
+                   android:id="@+id/mtvIssueDate"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="@dimen/font_12"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   tools:text="2020-03-30"
+                   app:layout_constraintBottom_toBottomOf="parent"/>
+
+               <com.google.android.material.textview.MaterialTextView
+                   android:id="@+id/mtvItemName"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   tools:text="Transaction name"
+                   android:layout_marginTop="@dimen/spacing_8"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/mtvTitleLabel"/>
+
+               <com.google.android.material.textview.MaterialTextView
+                   android:id="@+id/mtvStatus"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   tools:text="@string/active"
+                   android:textColor="?colorSecondary"
+                   android:background="@drawable/et_border_item_bg"
+                   android:layout_marginTop="@dimen/spacing_8"
+                   android:paddingTop="@dimen/spacing_5"
+                   android:paddingBottom="@dimen/spacing_5"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/mtvItemName"/>
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+       </com.google.android.material.card.MaterialCardView>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/clError"
+           android:visibility="gone"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:padding="@dimen/spacing_16"
+           app:layout_constraintTop_toBottomOf="@id/tilSearch"
+           app:layout_constraintBottom_toBottomOf="parent">
+
+           <com.google.android.material.textview.MaterialTextView
+               android:id="@+id/mtvErrorMessage"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               tools:text="Error"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent"/>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+       <ProgressBar
+           android:id="@+id/loading"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:visibility="gone"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintTop_toTopOf="parent"/>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

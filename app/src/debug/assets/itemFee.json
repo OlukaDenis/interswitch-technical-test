@@ -1,0 +1,50 @@
+{
+  "responseCode": 90000,
+  "responseMessage": "TRANSACTION APPROVED",
+  "response": {
+    "name": "MTN Airtime",
+    "payConfiguration": [
+      {
+        "source": "BillerPays",
+        "payType": "Percentage",
+        "payValue": 5.0,
+        "maximumFeeBorn": 99999.0,
+        "minimumFeeBorn": 0.0,
+        "itemFeeMapSettingId": 0,
+        "bandCode": "",
+        "hasExcise": false,
+        "isPayVAT": false,
+        "hasWithholdingTax": false,
+        "hasServiceCharge": false
+      }
+    ],
+    "isInclusiveInAmount": true,
+    "hasProviderServiceCharge": false,
+    "overrideBillerFee": true,
+    "vat": 0.0,
+    "providerServiceCharge": 0.0,
+    "taxAccount": "VAT001",
+    "withholdingTax": 0.0,
+    "withholdingTaxAccount": "WH001",
+    "excise": 0.0,
+    "exciseTaxAccount": "EX001",
+    "providerServiceChargeAccount": null,
+    "feeGroups": [
+      {
+        "name": "MTN Uganda Group",
+        "description": "MTN Uganda fee Group",
+        "itemId": 36946,
+        "itemFeeId": 30112,
+        "item": null,
+        "clientFees": null,
+        "id": 20022,
+        "isActive": true,
+        "issueDate": "2021-09-13T09:55:04.6967235"
+      }
+    ],
+    "itemFeeMapSettings": [],
+    "id": 30112,
+    "isActive": true,
+    "issueDate": "2021-09-13T09:51:37.4550053"
+  }
+}

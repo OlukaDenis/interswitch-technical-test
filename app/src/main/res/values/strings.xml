@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">InterswitchTechnicalTest</string>
+    <string name="find">Find</string>
+    <string name="transaction_details">Item Fee Details</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
+    <string name="not_transaction_selected">No Item Fee selected</string>
+    <string name="home">Home</string>
+    <string name="delete_icon">Delete icon</string>
+    <string name="warning">Warning</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="this_action_will_delete_all_cached_item_fees_are_you_sure_you_want_to_continue">This action will delete all cached item fees. Are you sure you want to continue?</string>
+    <string name="enter_item_fee_id">Enter Item Fee Id</string>
 </resources>
