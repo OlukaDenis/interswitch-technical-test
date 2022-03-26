@@ -28,10 +28,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.mcdenny.interswitchtechnicaltest.R
 import com.mcdenny.interswitchtechnicaltest.data.remote.formatDateTime
 import com.mcdenny.interswitchtechnicaltest.databinding.ActivityMainBinding
+import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
 import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogClickLister
 import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.removeFocus
 import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.showBottomDialog
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             cardClearItems.setOnClickListener {
-                showBottomDialog(object: DialogClickLister {
+                showBottomDialog(object : DialogClickLister {
                     override fun onOkClicked() {
                         viewModel.clearItems()
                     }
@@ -81,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.itemFeeState.observe(this) {
             Timber.d("Transaction: $it")
             with(binding) {
-                when(it) {
+                when (it) {
                     is ItemFeeState.Initial -> {
                         cardContent.isVisible = false
                         clError.isVisible = true
@@ -100,9 +102,7 @@ class MainActivity : AppCompatActivity() {
                         cardContent.isVisible = true
 
                         val transaction = it.data
-                        mtvItemName.text = transaction.name
-                        mtvStatus.text = if (transaction.isActive) getString(R.string.active) else getString(R.string.inactive)
-                        mtvIssueDate.text = transaction.issueDate.formatDateTime()
+                        populateDetails(transaction)
                     }
 
                     is ItemFeeState.Error -> {
@@ -111,15 +111,35 @@ class MainActivity : AppCompatActivity() {
                         cardContent.isVisible = false
 
                         Snackbar.make(
-                           binding.root,
+                            binding.root,
                             it.message,
                             Snackbar.LENGTH_SHORT
                         ).show()
-
-//                        mtvErrorMessage.text = it.message
                     }
                 }
             }
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private fun populateDetails(transaction: ItemFee) {
+        with(binding) {
+
+            mtvItemName.text = transaction.name
+            mtvStatus.text =
+                if (transaction.isActive) getString(R.string.active) else getString(R.string.inactive)
+            mtvIssueDate.text = transaction.issueDate.formatDateTime()
+
+            mtvTax.text = transaction.withholdingTax.toString()
+            mtvVat.text = transaction.vat.toString()
+            mtvServiceCharge.text = transaction.providerServiceCharge.toString()
+
+            groupRecycler.apply {
+                adapter = FeeGroupAdapter(transaction.feeGroups)
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                setHasFixedSize(true)
+            }
+
         }
     }
 }
