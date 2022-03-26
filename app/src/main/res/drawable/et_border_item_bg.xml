@@ -26,9 +26,9 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="0dp"
-                android:color="@color/light_30" />
+                android:color="@color/light_bg" />
             <corners android:radius="@dimen/spacing_8"/>
-            <solid android:color="@color/light_30"/>
+            <solid android:color="@color/light_bg"/>
             <padding android:bottom="@dimen/spacing_8"
                 android:top="@dimen/spacing_8"
                 android:left="@dimen/spacing_8"

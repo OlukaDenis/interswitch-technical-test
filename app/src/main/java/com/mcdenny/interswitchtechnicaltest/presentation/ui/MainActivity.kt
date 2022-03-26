@@ -25,14 +25,16 @@ package com.mcdenny.interswitchtechnicaltest.presentation.ui
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.snackbar.Snackbar
 import com.mcdenny.interswitchtechnicaltest.R
 import com.mcdenny.interswitchtechnicaltest.data.remote.formatDateTime
 import com.mcdenny.interswitchtechnicaltest.databinding.ActivityMainBinding
-import com.mcdenny.interswitchtechnicaltest.domain.model.Transaction
+import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogClickLister
+import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.removeFocus
+import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.showBottomDialog
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -49,17 +51,25 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-//        viewModel.searchTransaction("30119")
         with(binding) {
-            etSearch.doOnTextChanged { text, start, before, count ->
+            etSearch.doOnTextChanged { text, _, _, _ ->
                 if (text.toString().isNotEmpty()) tilSearch.error = null
             }
             btnFind.setOnClickListener {
+                removeFocus()
                 if (etSearch.text.toString().isEmpty()) {
                     tilSearch.error = "Please provide a transaction ID"
                 } else {
-                    viewModel.searchTransaction(etSearch.text.toString())
+                    viewModel.searchItemFee(etSearch.text.toString())
                 }
+            }
+
+            cardClearItems.setOnClickListener {
+                showBottomDialog(object: DialogClickLister {
+                    override fun onOkClicked() {
+                        viewModel.clearItems()
+                    }
+                })
             }
         }
 
@@ -68,37 +78,45 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("NewApi")
     private fun observeState() {
-        viewModel.transactionState.observe(this) {
+        viewModel.itemFeeState.observe(this) {
             Timber.d("Transaction: $it")
             with(binding) {
                 when(it) {
-                    is TransactionState.Initial -> {
+                    is ItemFeeState.Initial -> {
                         cardContent.isVisible = false
                         clError.isVisible = true
                         mtvErrorMessage.text = getString(R.string.not_transaction_selected)
                     }
-                    is TransactionState.Loading -> {
+
+                    is ItemFeeState.Loading -> {
                         loading.isVisible = true
                         clError.isVisible = false
                         cardContent.isVisible = false
                     }
 
-                    is TransactionState.Success -> {
+                    is ItemFeeState.Success -> {
                         loading.isVisible = false
                         clError.isVisible = false
                         cardContent.isVisible = true
 
                         val transaction = it.data
-                        mtvTransactionName.text = transaction.name
+                        mtvItemName.text = transaction.name
                         mtvStatus.text = if (transaction.isActive) getString(R.string.active) else getString(R.string.inactive)
                         mtvIssueDate.text = transaction.issueDate.formatDateTime()
                     }
-                    is TransactionState.Error -> {
+
+                    is ItemFeeState.Error -> {
                         loading.isVisible = false
                         clError.isVisible = true
                         cardContent.isVisible = false
 
-                        mtvErrorMessage.text = it.message
+                        Snackbar.make(
+                           binding.root,
+                            it.message,
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+
+//                        mtvErrorMessage.text = it.message
                     }
                 }
             }

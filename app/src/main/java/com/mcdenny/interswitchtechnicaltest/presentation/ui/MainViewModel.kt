@@ -25,58 +25,59 @@ package com.mcdenny.interswitchtechnicaltest.presentation.ui
 import androidx.lifecycle.*
 import com.mcdenny.interswitchtechnicaltest.domain.AppDispatcher
 import com.mcdenny.interswitchtechnicaltest.domain.model.Resource
-import com.mcdenny.interswitchtechnicaltest.domain.usecases.ClearTransactionsUseCase
-import com.mcdenny.interswitchtechnicaltest.domain.usecases.FetchRemoteTransactionUseCase
-import com.mcdenny.interswitchtechnicaltest.domain.usecases.FindCachedTransactionUseCase
+import com.mcdenny.interswitchtechnicaltest.domain.usecases.ClearItemFeesUseCase
+import com.mcdenny.interswitchtechnicaltest.domain.usecases.FetchRemoteItemFeeUseCase
+import com.mcdenny.interswitchtechnicaltest.domain.usecases.FindCachedItemFeeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val fetchRemoteTransactionUseCase: FetchRemoteTransactionUseCase,
-    private val findCachedTransactionUseCase: FindCachedTransactionUseCase,
-    private val clearTransactionsUseCase: ClearTransactionsUseCase,
+    private val fetchRemoteItemFeeUseCase: FetchRemoteItemFeeUseCase,
+    private val findCachedItemFeeUseCase: FindCachedItemFeeUseCase,
+    private val clearItemFeesUseCase: ClearItemFeesUseCase,
     private val dispatcher: AppDispatcher
 ) : ViewModel() {
 
-    private val _transactionState = MutableStateFlow<TransactionState>(TransactionState.Initial)
-    val transactionState get() = _transactionState.asLiveData()
+    private val _itemFeeState = MutableStateFlow<ItemFeeState>(ItemFeeState.Initial)
+    val itemFeeState get() = _itemFeeState.asLiveData()
 
-//    init {
-//        _transactionState.value = TransactionState()
-//    }
-
-    fun searchTransaction(transactionId: String) {
-        val id = transactionId.toLong()
+    fun searchItemFee(itemFeeId: String) {
+        val id = itemFeeId.toLong()
 
         viewModelScope.launch {
-            val foundTransaction = findCachedTransactionUseCase(id).first()
+            val foundTransaction = findCachedItemFeeUseCase(id).first()
 
             if (foundTransaction.isEmpty()) {
                 withContext(dispatcher.io) {
-                    fetchRemoteTransactionUseCase(id).collect {
+                    fetchRemoteItemFeeUseCase(id).collect {
                         when (it) {
                             is Resource.Loading -> {
-                                _transactionState.value = TransactionState.Loading
+                                _itemFeeState.value = ItemFeeState.Loading
                             }
                             is Resource.Success -> {
-                                _transactionState.value = TransactionState.Success(it.data)
+                                _itemFeeState.value = ItemFeeState.Success(it.data)
                             }
                             is Resource.Error -> {
-                                _transactionState.value = TransactionState.Error(it.exception)
+                                _itemFeeState.value = ItemFeeState.Error(it.exception)
                             }
                         }
                     }
                 }
             } else {
-                _transactionState.value = TransactionState.Success(foundTransaction[0])
+                _itemFeeState.value = ItemFeeState.Success(foundTransaction[0])
             }
+        }
+    }
+
+    fun clearItems() {
+        viewModelScope.launch {
+            clearItemFeesUseCase()
         }
     }
 }

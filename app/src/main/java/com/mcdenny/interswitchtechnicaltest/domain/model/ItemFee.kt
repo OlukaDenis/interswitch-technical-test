@@ -3,8 +3,8 @@ package com.mcdenny.interswitchtechnicaltest.domain.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "transactions")
-data class Transaction(
+@Entity(tableName = "item_fees")
+data class ItemFee(
     @PrimaryKey
     val id: Long,
     val excise: Double,

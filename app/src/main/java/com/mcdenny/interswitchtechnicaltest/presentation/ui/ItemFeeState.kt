@@ -22,11 +22,11 @@
 
 package com.mcdenny.interswitchtechnicaltest.presentation.ui
 
-import com.mcdenny.interswitchtechnicaltest.domain.model.Transaction
+import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
 
-sealed class TransactionState {
-    object Initial: TransactionState()
-    object Loading: TransactionState()
-    data class Error(val message: String): TransactionState()
-    data class Success(val data: Transaction): TransactionState()
+sealed class ItemFeeState {
+    object Initial: ItemFeeState()
+    object Loading: ItemFeeState()
+    data class Error(val message: String): ItemFeeState()
+    data class Success(val data: ItemFee): ItemFeeState()
 }

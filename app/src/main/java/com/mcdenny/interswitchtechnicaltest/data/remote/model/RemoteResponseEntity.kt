@@ -23,7 +23,7 @@
 package com.mcdenny.interswitchtechnicaltest.data.remote.model
 
 data class RemoteResponseEntity(
-    val response: RemoteTransaction?,
+    val response: RemoteItemFee?,
     val responseCode: Long?,
     val responseMessage: String?
 )

@@ -26,5 +26,5 @@ object DatabaseModule {
     ).build()
 
     @Provides
-    fun provideTransactionDao(database: AppDatabase) = database.transactionDao()
+    fun provideItemFeeDao(database: AppDatabase) = database.itemFeeDao()
 }

@@ -7,8 +7,8 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("{transactionId}?getRelatedData=true")
-    suspend fun fetchTransaction(
-        @Path("transactionId") transactionId: Long
+    @GET("{itemFeeId}?getRelatedData=true")
+    suspend fun fetchItemFee(
+        @Path("itemFeeId") itemFeeId: Long
     ): RemoteResponseEntity
 }

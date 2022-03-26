@@ -23,17 +23,17 @@
 package com.mcdenny.interswitchtechnicaltest.data.remote.mappers
 
 import com.mcdenny.interswitchtechnicaltest.data.BaseMapper
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteTransaction
-import com.mcdenny.interswitchtechnicaltest.domain.model.Transaction
+import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteItemFee
+import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
 import javax.inject.Inject
 
-class RemoteTransactionMapper @Inject constructor(
+class RemoteItemFeeMapper @Inject constructor(
     private val remoteFeeGroupMapper: RemoteFeeGroupMapper,
     private val remotePayConfigurationMapper: RemotePayConfigurationMapper
-): BaseMapper<RemoteTransaction, Transaction> {
+): BaseMapper<RemoteItemFee, ItemFee> {
 
-    override fun mapToDomain(entity: RemoteTransaction): Transaction {
-        return Transaction(
+    override fun mapToDomain(entity: RemoteItemFee): ItemFee {
+        return ItemFee(
             id = entity.id,
             excise = entity.excise ?: 0.0,
             exciseTaxAccount = entity.exciseTaxAccount.orEmpty(),

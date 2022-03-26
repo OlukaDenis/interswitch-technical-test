@@ -114,7 +114,9 @@ dependencies {
     kapt(Dependencies.Hilt.COMPILER)
     kapt(Dependencies.Hilt.HILT_COMPILER)
 
+    testImplementation(Dependencies.Test.TRUTHY)
     testImplementation(Dependencies.Test.JUNIT)
+    testImplementation(Dependencies.Test.MOCKK)
     androidTestImplementation(Dependencies.Test.JUNIT_EXT)
     androidTestImplementation(Dependencies.Test.ESPRESSO)
 }

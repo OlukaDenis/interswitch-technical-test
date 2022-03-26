@@ -20,18 +20,9 @@
   ~ SOFTWARE.
   -->
 
-<resources>
-    <dimen name="spacing_16">16dp</dimen>
-    <dimen name="spacing_8">8dp</dimen>
-    <dimen name="spacing_0">0dp</dimen>
-    <dimen name="font_16">16sp</dimen>
-    <dimen name="spacing_5">5dp</dimen>
-    <dimen name="font_14">14sp</dimen>
-    <dimen name="font_12">12sp</dimen>
-    <dimen name="font_18">18sp</dimen>
-    <dimen name="spacing_40">40dp</dimen>
-    <dimen name="spacing_30">30dp</dimen>
-    <dimen name="spacing_45">45dp</dimen>
-    <dimen name="spacing_20">20dp</dimen>
-    <dimen name="spacing_50">50dp</dimen>
-</resources>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="?attr/colorSurface"/>
+    <corners android:topLeftRadius="@dimen/spacing_20"
+        android:topRightRadius="@dimen/spacing_20" />
+</shape>

@@ -10,5 +10,5 @@
     <color name="dark_bg">#222222</color>
     <color name="dark_bg_20">#1c1c1c</color>
     <color name="gray_text">#777</color>
-    <color name="light_30">#efefef</color>
+    <color name="divider_color">#66777777</color>
 </resources>

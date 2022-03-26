@@ -5,5 +5,5 @@ import com.mcdenny.interswitchtechnicaltest.domain.model.ResponseEntity
 
 interface RemoteRepository {
 
-    suspend fun fetchTransaction(transactionId: Long): RemoteResponseEntity
+    suspend fun fetchItemFee(itemFeeId: Long): RemoteResponseEntity
 }

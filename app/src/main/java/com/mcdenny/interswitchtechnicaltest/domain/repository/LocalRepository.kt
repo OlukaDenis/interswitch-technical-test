@@ -1,15 +1,15 @@
 package com.mcdenny.interswitchtechnicaltest.domain.repository
 
-import com.mcdenny.interswitchtechnicaltest.domain.model.Transaction
+import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
 import kotlinx.coroutines.flow.Flow
 
 interface LocalRepository {
 
-    suspend fun insertTransaction(transaction: Transaction)
+    suspend fun insertItemFee(itemFee: ItemFee)
 
-    suspend fun deleteTransaction(transaction: Transaction)
+    suspend fun deleteItemFee(itemFee: ItemFee)
 
-    suspend fun clearTransactions()
+    suspend fun clearItemFees()
 
-    fun findTransaction(transactionId: Long): Flow<List<Transaction>>
+    fun findItemFee(itemFeeId: Long): Flow<List<ItemFee>>
 }

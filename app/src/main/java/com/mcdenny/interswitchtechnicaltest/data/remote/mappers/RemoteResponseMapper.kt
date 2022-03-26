@@ -28,11 +28,11 @@ import com.mcdenny.interswitchtechnicaltest.domain.model.ResponseEntity
 import javax.inject.Inject
 
 class RemoteResponseMapper @Inject constructor(
-    private val remoteTransactionMapper: RemoteTransactionMapper
+    private val remoteItemFeeMapper: RemoteItemFeeMapper
 ) : BaseMapper<RemoteResponseEntity, ResponseEntity> {
     override fun mapToDomain(entity: RemoteResponseEntity): ResponseEntity {
         return ResponseEntity(
-            response = entity.response?.let { remoteTransactionMapper.mapToDomain(it) },
+            response = entity.response?.let { remoteItemFeeMapper.mapToDomain(it) },
             responseCode = entity.responseCode ?: 0,
             responseMessage = entity.responseMessage.orEmpty()
         )
