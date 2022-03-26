@@ -26,5 +26,6 @@ object DatabaseModule {
     ).build()
 
     @Provides
+    @Singleton
     fun provideItemFeeDao(database: AppDatabase) = database.itemFeeDao()
 }

@@ -31,7 +31,7 @@ android {
         versionCode = Dependencies.ProjectConstants.VERSION_CODE
         versionName = Dependencies.ProjectConstants.VERSION_NAME
         multiDexEnabled = true
-        testInstrumentationRunner = Dependencies.ProjectConstants.TEST_INSTRUMENTATION_RUNNER
+        testInstrumentationRunner = "com.mcdenny.interswitchtechnicaltest.HiltTestRunner"
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -59,15 +59,28 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     buildFeatures {
         viewBinding = true
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+
+    sourceSets {
+        this.getByName("androidTest") {
+            this.assets.srcDir("src/debug/assets")
+        }
+    }
 }
 
 dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(Dependencies.Gradle.KOTLIN_STDLIB)
 
@@ -105,18 +118,27 @@ dependencies {
     implementation(Dependencies.Network.RETROFIT)
     implementation(Dependencies.Network.GSON_CONVERTER)
     implementation(Dependencies.Network.LOGGING_INTERCEPTOR)
+    testImplementation(Dependencies.Network.MOCK_WEB_SERVER)
+    androidTestImplementation(Dependencies.Network.MOCK_WEB_SERVER)
 
     testImplementation(Dependencies.Kotlin.COROUTINE_TEST)
     implementation(Dependencies.Kotlin.COROUTINE_ANDROID)
 
     implementation(Dependencies.Hilt.HILT_WORKER)
-    implementation(Dependencies.Hilt.ANDROID)
-    kapt(Dependencies.Hilt.COMPILER)
+    implementation(Dependencies.Hilt.HILT_ANDROID)
+    implementation(Dependencies.Hilt.HILT_VIEWMODEL)
+    kapt(Dependencies.Hilt.HILT_ANDROID_COMPILER)
     kapt(Dependencies.Hilt.HILT_COMPILER)
+    testImplementation(Dependencies.Hilt.HILT_TEST)
+    androidTestImplementation(Dependencies.Hilt.HILT_TEST)
+    kaptAndroidTest(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
     testImplementation(Dependencies.Test.TRUTHY)
     testImplementation(Dependencies.Test.JUNIT)
     testImplementation(Dependencies.Test.MOCKK)
+    testImplementation(Dependencies.Test.ROBOELECTRIC)
+    androidTestImplementation(Dependencies.Test.TRUTHY)
     androidTestImplementation(Dependencies.Test.JUNIT_EXT)
     androidTestImplementation(Dependencies.Test.ESPRESSO)
+    androidTestImplementation(Dependencies.Test.CORE_TESTING)
 }

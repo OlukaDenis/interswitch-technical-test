@@ -20,16 +20,22 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.domain.usecases
+package com.mcdenny.interswitchtechnicaltest.data.remote.utils
 
-import com.mcdenny.interswitchtechnicaltest.domain.repository.LocalRepository
-import javax.inject.Inject
+import androidx.test.platform.app.InstrumentationRegistry
+import timber.log.Timber
+import java.io.IOException
+import java.io.InputStream
 
-class ClearItemFeesUseCase @Inject constructor(
-    private val repository: LocalRepository
-) {
-
-    suspend operator fun invoke() {
-        repository.clearItemFees()
+object JsonReader {
+    fun getJson(path: String): String {
+        return try {
+            val context = InstrumentationRegistry.getInstrumentation().context
+            val jsonStream: InputStream = context.assets.open(path)
+            String(jsonStream.readBytes())
+        } catch (exception: IOException) {
+            Timber.e(exception, "Error reading network response json asset")
+            throw exception
+        }
     }
 }

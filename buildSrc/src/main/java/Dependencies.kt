@@ -55,6 +55,8 @@ object Dependencies {
         const val DISPATCHER_PROVIDER_TEST = "com.rickbusarow.dispatcherprovider:dispatcher-provider-test:1.0.0-beta08"
         const val JACOCO_ANDROID = "com.dicedmelon.gradle:jacoco-android:${Versions.Test.JACOCO_ANDROID}"
         const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.Test.ESPRESSO}"
+        const val CORE_TESTING = "androidx.arch.core:core-testing:${Versions.Test.CORE_TESTING}"
+        const val ROBOELECTRIC = "org.robolectric:robolectric:${Versions.Test.ROBOELECTRIC}"
     }
 
     object Navigation {
@@ -66,10 +68,12 @@ object Dependencies {
     }
 
     object Hilt {
-        const val ANDROID = "com.google.dagger:hilt-android:${Versions.Hilt.HILT_CORE}"
-        const val COMPILER = "com.google.dagger:hilt-compiler:${Versions.Hilt.HILT_CORE}"
+        const val HILT_ANDROID = "com.google.dagger:hilt-android:${Versions.Hilt.HILT_CORE}"
+        const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.Hilt.HILT_CORE}"
+//        const val COMPILER = "com.google.dagger:hilt-compiler:${Versions.Hilt.HILT_CORE}"
+        const val HILT_VIEWMODEL = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.Hilt.ANDROID_X_COMPILER}"
         const val HILT_COMPILER = "androidx.hilt:hilt-compiler:${Versions.Hilt.HILT_COMPILER}"
-        const val TEST = "com.google.dagger:hilt-android-testing:${Versions.Hilt.HILT_CORE}"
+        const val HILT_TEST = "com.google.dagger:hilt-android-testing:${Versions.Hilt.HILT_CORE}"
         const val CLASSPATH = "com.google.dagger:hilt-android-gradle-plugin:${Versions.Hilt.HILT_CORE}"
         const val HILT_WORKER = "androidx.hilt:hilt-work:${Versions.Hilt.HILT_COMPILER}"
     }

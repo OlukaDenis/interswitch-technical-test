@@ -117,13 +117,10 @@ class NetworkModule {
     internal fun provideApiRetrofit(
         client: OkHttpClient,
         converterFactory: GsonConverterFactory
-    ): Retrofit {
-        val builder = Retrofit.Builder()
-        builder.apply {
-            baseUrl(BuildConfig.BASE_URL)
-            client(client)
-            addConverterFactory(converterFactory)
-        }
-        return builder.build()
+    ): Retrofit.Builder {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .client(client)
+            .addConverterFactory(converterFactory)
     }
 }

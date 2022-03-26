@@ -20,16 +20,21 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.domain.usecases
+package com.mcdenny.interswitchtechnicaltest
 
-import com.mcdenny.interswitchtechnicaltest.domain.repository.LocalRepository
-import javax.inject.Inject
+import android.app.Application
+import android.content.Context
+import androidx.test.runner.AndroidJUnitRunner
+import dagger.hilt.android.testing.HiltTestApplication
 
-class ClearItemFeesUseCase @Inject constructor(
-    private val repository: LocalRepository
-) {
-
-    suspend operator fun invoke() {
-        repository.clearItemFees()
+class HiltTestRunner : AndroidJUnitRunner() {
+    override fun newApplication(
+        cl: ClassLoader?, name: String?,
+        context: Context?
+    ): Application {
+        return super.newApplication(
+            cl,
+            HiltTestApplication::class.java.name, context
+        )
     }
 }

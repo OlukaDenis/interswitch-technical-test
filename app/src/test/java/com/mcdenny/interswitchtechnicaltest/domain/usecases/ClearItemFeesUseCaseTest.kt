@@ -23,13 +23,39 @@
 package com.mcdenny.interswitchtechnicaltest.domain.usecases
 
 import com.mcdenny.interswitchtechnicaltest.domain.repository.LocalRepository
-import javax.inject.Inject
+import io.mockk.*
+import io.mockk.impl.annotations.MockK
+import kotlinx.coroutines.runBlocking
+import org.junit.Assert.*
 
-class ClearItemFeesUseCase @Inject constructor(
-    private val repository: LocalRepository
-) {
+import org.junit.After
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
 
-    suspend operator fun invoke() {
-        repository.clearItemFees()
+class ClearItemFeesUseCaseTest {
+
+    private lateinit var clearItemFeesUseCase: ClearItemFeesUseCase
+
+    @MockK
+    lateinit var repository: LocalRepository
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this, relaxUnitFun = true)
+        clearItemFeesUseCase = ClearItemFeesUseCase(repository)
+    }
+
+    @Test
+    fun test_clearItemFees() = runBlocking {
+        // Given
+        coEvery { repository.clearItemFees() } returns Unit
+
+        // When
+        clearItemFeesUseCase()
+
+        // Then
+        coVerify { repository.clearItemFees() }
+
     }
 }

@@ -8,7 +8,7 @@ object Versions {
     const val NAVIGATION = "2.3.5"
     const val FLOW_BINDING = "1.0.0-beta02"
 
-    const val BASE_URL = "https://iswapigateway-develop.azurewebsites.net/qt-api/Item/fee/"
+    const val BASE_URL = "https://iswapigateway-develop.azurewebsites.net/qt-api/"
 
     object Ktlint {
         const val CORE = "0.33.0"
@@ -39,6 +39,8 @@ object Versions {
         const val JACOCO_ANDROID = "0.1.5"
         const val MOCKK = "1.12.0"
         const val TRUTHY = "1.1.3"
+        const val ROBOELECTRIC = "4.4"
+        const val CORE_TESTING = "2.1.0"
     }
 
     object Google {

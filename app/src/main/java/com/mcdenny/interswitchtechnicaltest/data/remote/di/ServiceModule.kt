@@ -37,8 +37,8 @@ class ServiceModule {
     @Provides
     @Singleton
     internal fun provideApiService(
-        retrofit: Retrofit
+        retrofit: Retrofit.Builder
     ): ApiService {
-        return retrofit.create(ApiService::class.java)
+        return retrofit.build().create(ApiService::class.java)
     }
 }
