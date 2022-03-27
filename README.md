@@ -1,6 +1,8 @@
 # Interswitch Technical Test #
 
+## Screenshots ##
 
+![app screens](https://user-images.githubusercontent.com/37341054/160259901-913aa44d-f4c2-464f-b559-04c36a0c9d9a.jpg) 
 
 ## Project Structure ##
     .
@@ -33,11 +35,6 @@
 Notes:
 
 * While loading/building the app in Android Studio ignore the prompt to update the gradle plugin version as that will probably introduce build errors. On the other hand, feel free to update if you are planning to work on ensuring the compatibility of the newer version.
-
-## App Screenshots ##
-
-![app screens](https://user-images.githubusercontent.com/37341054/160259901-913aa44d-f4c2-464f-b559-04c36a0c9d9a.jpg) 
-
 ## Run Tests ##
 
 The project has both unit and instrumental tests. To test the project from the command line:
