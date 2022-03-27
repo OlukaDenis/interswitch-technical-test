@@ -1,9 +1,10 @@
 # Interswitch Technical Test #
 
 Interswitch Technical Test is an application that fetches the details of a Fee Item given the itemFeeId. The project demonstrates best practices by using up to date tech-stack and presenting Modern Android application Architecture that is modular, scalable, maintainable, and testable.
+
 ## Screenshots ##
 
-![app screens](https://user-images.githubusercontent.com/37341054/160259901-913aa44d-f4c2-464f-b559-04c36a0c9d9a.jpg) 
+![screenshots](https://user-images.githubusercontent.com/37341054/160276067-59dc4194-0cab-4ea0-8070-e816446048e1.jpg)
 
 ## Architecture ##
 
