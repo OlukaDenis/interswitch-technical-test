@@ -35,8 +35,7 @@ Minimum API level is set to 21, so the presented approach is suitable for over 9
 ## Project Structure ##
     .
     ├── app
-    │   |-- build.gradle       
-       # main build script
+    │   |-- build.gradle                # main build script
     │   └── src
     │       ├── androidTest             # Android test assets, resources and code
     │       ├── test                    # Unit tests
