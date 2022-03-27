@@ -134,6 +134,11 @@ class MainActivity : AppCompatActivity() {
             mtvVat.text = transaction.vat.toString()
             mtvServiceCharge.text = transaction.providerServiceCharge.toString()
 
+            if (transaction.feeGroups.isEmpty()) {
+                mtvGroupLabel.isVisible = false
+                groupRecycler.isVisible = false
+            }
+
             groupRecycler.apply {
                 adapter = FeeGroupAdapter(transaction.feeGroups)
                 layoutManager = LinearLayoutManager(this@MainActivity)

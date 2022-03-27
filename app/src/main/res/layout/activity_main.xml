@@ -245,7 +245,7 @@
                    android:id="@+id/mtvGroupLabel"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="Fee Groups"
+                   android:text="@string/fee_groups"
                    android:textStyle="bold"
                    android:layout_marginTop="@dimen/spacing_16"
                    app:layout_constraintStart_toStartOf="parent"
