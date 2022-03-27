@@ -14,7 +14,7 @@ The architecture of the application is based, apply and strictly complies with e
 
 [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) - Pattern (MVVM) facilitates a separation of concerns between user interface and domain logic.
 
-[S.O.L.I.D](https://en.wikipedia.org/wiki/SOLID)design principles intended to make software designs more understandable, flexible and maintainable.
+[S.O.L.I.D](https://en.wikipedia.org/wiki/SOLID) - Design principles intended to make software designs more understandable, flexible and maintainable.
 
 ## Tech-stack ##
 
