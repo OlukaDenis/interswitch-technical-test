@@ -20,5 +20,7 @@ rootProject.name = "InterswitchTechnicalTest"
 rootProject.buildFileName = "build.gradle.kts"
 
 include(
-        ":app"
+        ":app",
+        ":domain",
+        ":data"
 )
