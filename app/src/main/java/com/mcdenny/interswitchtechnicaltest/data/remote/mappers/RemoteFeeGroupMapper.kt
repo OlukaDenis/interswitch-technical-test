@@ -37,7 +37,7 @@ class RemoteFeeGroupMapper @Inject constructor(): BaseMapper<RemoteFeeGroup, Fee
             itemFeeId = entity.itemFeeId ?: 0,
             itemId = entity.itemId ?: 0,
             name = entity.name.orEmpty(),
-            issueDate = entity.name.orEmpty()
+            issueDate = entity.issueDate.orEmpty()
         )
     }
 }

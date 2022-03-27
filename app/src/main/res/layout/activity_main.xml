@@ -108,18 +108,20 @@
            android:layout_height="wrap_content"
            android:layout_marginTop="@dimen/spacing_16"
            app:cardCornerRadius="@dimen/spacing_8"
+           app:cardElevation="@dimen/spacing_0"
            app:layout_constraintTop_toBottomOf="@+id/tilSearch">
 
            <androidx.constraintlayout.widget.ConstraintLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:padding="@dimen/spacing_16">
+               android:padding="@dimen/spacing_8">
 
                <com.google.android.material.textview.MaterialTextView
                    android:id="@+id/mtvTitleLabel"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="@string/transaction_details"
+                   android:textSize="@dimen/font_18"
                    android:textStyle="bold"
                    app:layout_constraintStart_toStartOf="parent"
                    app:layout_constraintTop_toTopOf="parent"/>
@@ -131,7 +133,22 @@
                    android:textSize="@dimen/font_12"
                    app:layout_constraintEnd_toEndOf="parent"
                    tools:text="2020-03-30"
-                   app:layout_constraintBottom_toBottomOf="parent"/>
+                   app:layout_constraintBottom_toBottomOf="@id/mtvItemName"/>
+
+
+               <com.google.android.material.textview.MaterialTextView
+                   android:id="@+id/mtvStatus"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   tools:text="@string/active"
+                   android:textColor="?colorSecondary"
+                   android:background="@drawable/et_border_item_bg"
+                   android:layout_marginTop="@dimen/spacing_8"
+                   android:visibility="visible"
+                   android:paddingTop="@dimen/spacing_8"
+                   android:paddingBottom="@dimen/spacing_8"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/mtvIssueDate"/>
 
                <com.google.android.material.textview.MaterialTextView
                    android:id="@+id/mtvItemName"
@@ -142,18 +159,104 @@
                    app:layout_constraintStart_toStartOf="parent"
                    app:layout_constraintTop_toBottomOf="@id/mtvTitleLabel"/>
 
-               <com.google.android.material.textview.MaterialTextView
-                   android:id="@+id/mtvStatus"
+               <LinearLayout
+                   android:id="@+id/llVat"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   tools:text="@string/active"
-                   android:textColor="?colorSecondary"
-                   android:background="@drawable/et_border_item_bg"
+                   android:orientation="horizontal"
                    android:layout_marginTop="@dimen/spacing_8"
-                   android:paddingTop="@dimen/spacing_5"
-                   android:paddingBottom="@dimen/spacing_5"
                    app:layout_constraintStart_toStartOf="parent"
-                   app:layout_constraintTop_toBottomOf="@id/mtvItemName"/>
+                   app:layout_constraintTop_toBottomOf="@id/mtvItemName">
+
+                   <com.google.android.material.textview.MaterialTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="VAT: "
+                       android:layout_marginTop="@dimen/spacing_8"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/mtvTitleLabel"/>
+
+                   <com.google.android.material.textview.MaterialTextView
+                       android:id="@+id/mtvVat"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       tools:text="100.00"
+                       android:layout_marginTop="@dimen/spacing_8"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/mtvTitleLabel"/>
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/llTax"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/llVat">
+
+                   <com.google.android.material.textview.MaterialTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Tax: "
+                       android:layout_marginTop="@dimen/spacing_8"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/mtvTitleLabel"/>
+
+                   <com.google.android.material.textview.MaterialTextView
+                       android:id="@+id/mtvTax"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       tools:text="100.00"
+                       android:layout_marginTop="@dimen/spacing_8"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/mtvTitleLabel"/>
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/llServiceCharge"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/llTax">
+
+                   <com.google.android.material.textview.MaterialTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Charge: "
+                       android:layout_marginTop="@dimen/spacing_8"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/mtvTitleLabel"/>
+
+                   <com.google.android.material.textview.MaterialTextView
+                       android:id="@+id/mtvServiceCharge"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       tools:text="100.00"
+                       android:layout_marginTop="@dimen/spacing_8"
+                       app:layout_constraintStart_toStartOf="parent"
+                       app:layout_constraintTop_toBottomOf="@id/llTax"/>
+
+               </LinearLayout>
+
+               <com.google.android.material.textview.MaterialTextView
+                   android:id="@+id/mtvGroupLabel"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/fee_groups"
+                   android:textStyle="bold"
+                   android:layout_marginTop="@dimen/spacing_16"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/llServiceCharge"/>
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/groupRecycler"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:layout_constraintTop_toBottomOf="@id/mtvGroupLabel"
+                   tools:listitem="@layout/layout_item_group"/>
 
            </androidx.constraintlayout.widget.ConstraintLayout>
 
