@@ -35,7 +35,7 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 2
         targetSdk = 31
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -63,13 +63,6 @@ android {
 dependencies {
     implementation(Dependencies.Gradle.KOTLIN_STDLIB)
 
-//    implementation("androidx.core:core-ktx:1.7.0")
-//    implementation("androidx.appcompat:appcompat:1.4.1")
-//    implementation("com.google.android.material:material:1.5.0")
-//    testImplementation("junit:junit:4.13.2")
-//    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-//    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-
     testImplementation(Dependencies.Kotlin.COROUTINE_TEST)
     implementation(Dependencies.Kotlin.COROUTINE_ANDROID)
 
@@ -91,5 +84,10 @@ dependencies {
     androidTestImplementation(Dependencies.Test.ESPRESSO)
     androidTestImplementation(Dependencies.Test.CORE_TESTING)
 
-    implementation(project(":data"))
+    implementation(Dependencies.Room.RUNTIME)
+    implementation(Dependencies.Room.KTX)
+    kapt(Dependencies.Room.COMPILER)
+
+    implementation(Dependencies.Util.TIMBER)
+
 }

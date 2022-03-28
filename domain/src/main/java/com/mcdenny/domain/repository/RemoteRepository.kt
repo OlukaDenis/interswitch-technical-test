@@ -22,9 +22,10 @@
 
 package com.mcdenny.domain.repository
 
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteResponseEntity
+import com.mcdenny.domain.model.ItemFee
+import com.mcdenny.domain.model.ResponseEntity
 
 interface RemoteRepository {
 
-    suspend fun fetchItemFee(itemFeeId: Long): RemoteResponseEntity
+    suspend fun fetchItemFee(itemFeeId: Long): ResponseEntity
 }

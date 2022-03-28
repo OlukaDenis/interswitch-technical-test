@@ -22,9 +22,9 @@
 
 package com.mcdenny.data.local.impl
 
-import com.mcdenny.interswitchtechnicaltest.data.local.ItemFeeDao
-import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
-import com.mcdenny.interswitchtechnicaltest.domain.repository.LocalRepository
+import com.mcdenny.data.local.ItemFeeDao
+import com.mcdenny.domain.model.ItemFee
+import com.mcdenny.domain.repository.LocalRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

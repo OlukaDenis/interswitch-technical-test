@@ -22,8 +22,7 @@
 
 package com.mcdenny.data.remote
 
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteResponseEntity
-import com.mcdenny.interswitchtechnicaltest.domain.model.ResponseEntity
+import com.mcdenny.data.remote.model.RemoteResponseEntity
 import retrofit2.http.GET
 import retrofit2.http.Path
 

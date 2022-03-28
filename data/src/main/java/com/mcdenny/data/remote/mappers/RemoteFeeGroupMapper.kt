@@ -22,10 +22,9 @@
 
 package com.mcdenny.data.remote.mappers
 
-import com.mcdenny.interswitchtechnicaltest.data.BaseMapper
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteFeeGroup
-import com.mcdenny.interswitchtechnicaltest.domain.model.FeeGroup
-import java.lang.Exception
+import com.mcdenny.data.BaseMapper
+import com.mcdenny.data.remote.model.RemoteFeeGroup
+import com.mcdenny.domain.model.FeeGroup
 import javax.inject.Inject
 
 class RemoteFeeGroupMapper @Inject constructor(): BaseMapper<RemoteFeeGroup, FeeGroup> {

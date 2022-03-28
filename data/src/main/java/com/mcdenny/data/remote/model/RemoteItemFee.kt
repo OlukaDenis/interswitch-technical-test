@@ -22,9 +22,6 @@
 
 package com.mcdenny.data.remote.model
 
-import com.mcdenny.interswitchtechnicaltest.domain.model.FeeGroup
-import com.mcdenny.interswitchtechnicaltest.domain.model.PayConfiguration
-
 data class RemoteItemFee(
     val id: Long,
     val excise: Double?,

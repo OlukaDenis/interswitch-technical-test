@@ -25,29 +25,29 @@ package com.mcdenny.domain.usecases
 import com.mcdenny.domain.model.Resource
 import com.mcdenny.domain.repository.LocalRepository
 import com.mcdenny.domain.repository.RemoteRepository
+import com.mcdenny.domain.repository.UtilRepository
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class FetchRemoteItemFeeUseCase @Inject constructor(
     private val local: LocalRepository,
     private val remote: RemoteRepository,
-    private val remoteItemFeeMapper: RemoteItemFeeMapper
+    private val utilRepository: UtilRepository
 ) {
 
     suspend operator fun invoke(transactionId: Long) = flow {
         emit(Resource.Loading)
 
         try {
-            val (response, _, errorMessage) = remote.fetchItemFee(transactionId)
-            if (response != null) {
-                val transaction = remoteItemFeeMapper.mapToDomain(response)
-                local.insertItemFee(transaction)
-                emit(Resource.Success(transaction))
+            val (itemFee, _, errorMessage) = remote.fetchItemFee(transactionId)
+            if (itemFee != null) {
+                local.insertItemFee(itemFee)
+                emit(Resource.Success(itemFee))
             } else {
                 emit(Resource.Error(errorMessage.toString()))
             }
         } catch (throwable: Throwable) {
-            emit(Resource.Error(throwable.resolveError()))
+            emit(Resource.Error(utilRepository.getNetworkError(throwable)))
         }
     }
 }

@@ -22,9 +22,9 @@
 
 package com.mcdenny.data.remote.mappers
 
-import com.mcdenny.interswitchtechnicaltest.data.BaseMapper
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteResponseEntity
-import com.mcdenny.interswitchtechnicaltest.domain.model.ResponseEntity
+import com.mcdenny.data.BaseMapper
+import com.mcdenny.data.remote.model.RemoteResponseEntity
+import com.mcdenny.domain.model.ResponseEntity
 import javax.inject.Inject
 
 class RemoteResponseMapper @Inject constructor(

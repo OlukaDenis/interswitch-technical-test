@@ -22,18 +22,24 @@
 
 package com.mcdenny.data.remote.impl
 
-import com.mcdenny.interswitchtechnicaltest.data.remote.ApiService
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteResponseEntity
-import com.mcdenny.interswitchtechnicaltest.domain.repository.RemoteRepository
+import com.mcdenny.data.remote.ApiService
+import com.mcdenny.data.remote.mappers.RemoteItemFeeMapper
+import com.mcdenny.data.remote.mappers.RemoteResponseMapper
+import com.mcdenny.data.remote.model.RemoteResponseEntity
+import com.mcdenny.domain.model.ItemFee
+import com.mcdenny.domain.model.ResponseEntity
+import com.mcdenny.domain.repository.RemoteRepository
 import javax.inject.Inject
 
 class RemoteRepositoryImpl @Inject constructor(
-    private val service: ApiService
+    private val service: ApiService,
+    private val responseMapper: RemoteResponseMapper
 ): RemoteRepository {
 
-    override suspend fun fetchItemFee(itemFeeId: Long): RemoteResponseEntity {
+    override suspend fun fetchItemFee(itemFeeId: Long): ResponseEntity {
         return try {
-            service.fetchItemFee(itemFeeId)
+            val response = service.fetchItemFee(itemFeeId)
+            responseMapper.mapToDomain(response)
         } catch (throwable: Throwable) {
             throw throwable
         }

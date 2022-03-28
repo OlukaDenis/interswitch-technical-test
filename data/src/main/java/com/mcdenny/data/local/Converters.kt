@@ -24,8 +24,8 @@ package com.mcdenny.data.local
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
-import com.mcdenny.interswitchtechnicaltest.domain.model.FeeGroup
-import com.mcdenny.interswitchtechnicaltest.domain.model.PayConfiguration
+import com.mcdenny.domain.model.FeeGroup
+import com.mcdenny.domain.model.PayConfiguration
 
 class Converters {
 
@@ -47,11 +47,5 @@ class Converters {
     @TypeConverter
     fun toConfiguration(value: String) =
         Gson().fromJson(value, Array<PayConfiguration>::class.java).toList()
-//
-//    @TypeConverter
-//    fun fromResponse(value: Response): String = Gson().toJson(value)
-//
-//    @TypeConverter
-//    fun toResponse(value: String): Response = Gson().fromJson(value, Response::class.java)
 
 }

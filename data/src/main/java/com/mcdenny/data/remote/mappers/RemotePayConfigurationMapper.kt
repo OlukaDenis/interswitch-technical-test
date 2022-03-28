@@ -22,12 +22,13 @@
 
 package com.mcdenny.data.remote.mappers
 
-import com.mcdenny.interswitchtechnicaltest.data.BaseMapper
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemotePayConfiguration
-import com.mcdenny.interswitchtechnicaltest.domain.model.PayConfiguration
+import com.mcdenny.data.BaseMapper
+import com.mcdenny.data.remote.model.RemotePayConfiguration
+import com.mcdenny.domain.model.PayConfiguration
 import javax.inject.Inject
 
-class RemotePayConfigurationMapper @Inject constructor(): BaseMapper<RemotePayConfiguration, PayConfiguration> {
+class RemotePayConfigurationMapper @Inject constructor() :
+    BaseMapper<RemotePayConfiguration, PayConfiguration> {
     override fun mapToDomain(entity: RemotePayConfiguration): PayConfiguration {
         return PayConfiguration(
             bandCode = entity.bandCode.orEmpty(),

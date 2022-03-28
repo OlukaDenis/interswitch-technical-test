@@ -20,16 +20,9 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.data.local
+package com.mcdenny.domain.repository
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.mcdenny.domain.model.ItemFee
+interface UtilRepository {
 
-@TypeConverters(Converters::class)
-@Database(entities = [ItemFee::class], version = 1, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
-
-    abstract fun itemFeeDao(): ItemFeeDao
+    fun getNetworkError(throwable: Throwable): String
 }

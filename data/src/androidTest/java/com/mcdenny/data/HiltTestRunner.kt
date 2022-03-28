@@ -20,16 +20,21 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.data.local
+package com.mcdenny.data
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.mcdenny.domain.model.ItemFee
+import android.app.Application
+import android.content.Context
+import androidx.test.runner.AndroidJUnitRunner
+import dagger.hilt.android.testing.HiltTestApplication
 
-@TypeConverters(Converters::class)
-@Database(entities = [ItemFee::class], version = 1, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
-
-    abstract fun itemFeeDao(): ItemFeeDao
+class HiltTestRunner : AndroidJUnitRunner() {
+    override fun newApplication(
+        cl: ClassLoader?, name: String?,
+        context: Context?
+    ): Application {
+        return super.newApplication(
+            cl,
+            HiltTestApplication::class.java.name, context
+        )
+    }
 }

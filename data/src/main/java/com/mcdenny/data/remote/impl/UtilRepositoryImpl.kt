@@ -20,16 +20,13 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.data.local
+package com.mcdenny.data.remote.impl
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.mcdenny.domain.model.ItemFee
+import com.mcdenny.data.remote.resolveError
+import com.mcdenny.domain.repository.UtilRepository
+import javax.inject.Inject
 
-@TypeConverters(Converters::class)
-@Database(entities = [ItemFee::class], version = 1, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
+class UtilRepositoryImpl @Inject constructor() : UtilRepository {
 
-    abstract fun itemFeeDao(): ItemFeeDao
+    override fun getNetworkError(throwable: Throwable): String = throwable.resolveError()
 }

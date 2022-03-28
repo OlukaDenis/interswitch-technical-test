@@ -22,12 +22,14 @@
 
 package com.mcdenny.interswitchtechnicaltest.presentation.ui
 
-import androidx.lifecycle.*
-import com.mcdenny.interswitchtechnicaltest.domain.AppDispatcher
-import com.mcdenny.interswitchtechnicaltest.domain.model.Resource
-import com.mcdenny.interswitchtechnicaltest.domain.usecases.ClearItemFeesUseCase
-import com.mcdenny.interswitchtechnicaltest.domain.usecases.FetchRemoteItemFeeUseCase
-import com.mcdenny.interswitchtechnicaltest.domain.usecases.FindCachedItemFeeUseCase
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import com.mcdenny.domain.AppDispatcher
+import com.mcdenny.domain.model.Resource
+import com.mcdenny.domain.usecases.ClearItemFeesUseCase
+import com.mcdenny.domain.usecases.FetchRemoteItemFeeUseCase
+import com.mcdenny.domain.usecases.FindCachedItemFeeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect

@@ -26,9 +26,9 @@ import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.mcdenny.interswitchtechnicaltest.BuildConfig
-import com.mcdenny.interswitchtechnicaltest.data.Constants.CACHE_DIR_NAME
-import com.mcdenny.interswitchtechnicaltest.data.Constants.CACHE_FILE_SIZE
+import com.mcdenny.data.BuildConfig
+import com.mcdenny.data.Constants.CACHE_DIR_NAME
+import com.mcdenny.data.Constants.CACHE_FILE_SIZE
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

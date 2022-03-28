@@ -25,8 +25,8 @@ package com.mcdenny.data.local.di
 
 import android.content.Context
 import androidx.room.Room
-import com.mcdenny.interswitchtechnicaltest.data.Constants.DATABASE_NAME
-import com.mcdenny.interswitchtechnicaltest.data.local.AppDatabase
+import com.mcdenny.data.Constants.DATABASE_NAME
+import com.mcdenny.data.local.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

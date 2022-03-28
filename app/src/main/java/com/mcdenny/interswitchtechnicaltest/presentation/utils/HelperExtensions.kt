@@ -24,10 +24,15 @@ package com.mcdenny.interswitchtechnicaltest.presentation.utils
 
 import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.view.inputmethod.InputMethodManager
+import androidx.annotation.RequiresApi
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mcdenny.interswitchtechnicaltest.R
 import com.mcdenny.interswitchtechnicaltest.databinding.LayoutBottomDialogViewBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatterBuilder
+import java.util.*
 
 object DialogUtils {
 
@@ -61,6 +66,19 @@ object DialogUtils {
                 as InputMethodManager
         imm.hideSoftInputFromWindow(this.currentFocus?.windowToken, 0)
     }
+}
+
+
+@RequiresApi(Build.VERSION_CODES.O)
+fun String.formatDateTime(): String {
+//    val timestamp = this.replace(" ", "T")
+    val localDateTime = LocalDateTime.parse(this)
+    val dateFormatter = DateTimeFormatterBuilder()
+        .parseCaseInsensitive()
+        .appendPattern("MMM d, yyyy h:mm a")
+        .toFormatter(Locale.ENGLISH)
+
+    return localDateTime.format(dateFormatter)
 }
 
 interface DialogClickLister {

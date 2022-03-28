@@ -23,7 +23,7 @@
 package com.mcdenny.data.local
 
 import androidx.room.*
-import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
+import com.mcdenny.domain.model.ItemFee
 import kotlinx.coroutines.flow.Flow
 
 @Dao

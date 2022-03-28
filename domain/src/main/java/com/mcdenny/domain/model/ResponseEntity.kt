@@ -25,5 +25,5 @@ package com.mcdenny.domain.model
 data class ResponseEntity(
     val response: ItemFee?,
     val responseCode: Long,
-    val responseMessage: String
+    val responseMessage: String?
 )

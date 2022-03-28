@@ -32,20 +32,28 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 21
         targetSdk = 31
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.mcdenny.data.HiltTestRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        release {
+        named("debug") {
+            buildConfigField("String", "BASE_URL", "\"${Versions.BASE_URL}\"")
+        }
+
+        named("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
+                getDefaultProguardFile(
+                    "proguard-android-optimize.txt"
+                ),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", "\"${Versions.BASE_URL}\"")
         }
     }
     compileOptions {
@@ -59,13 +67,6 @@ android {
 
 dependencies {
     implementation(Dependencies.Gradle.KOTLIN_STDLIB)
-
-//    implementation("androidx.core:core-ktx:1.7.0")
-//    implementation("androidx.appcompat:appcompat:1.4.1")
-//    implementation("com.google.android.material:material:1.5.0")
-//    testImplementation("junit:junit:4.13.2")
-//    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-//    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
     implementation(Dependencies.Network.OKHTTP)
     implementation(Dependencies.Network.RETROFIT)
@@ -86,8 +87,20 @@ dependencies {
     androidTestImplementation(Dependencies.Hilt.HILT_TEST)
     kaptAndroidTest(Dependencies.Hilt.HILT_ANDROID_COMPILER)
 
+    testImplementation(Dependencies.Test.TRUTHY)
+    testImplementation(Dependencies.Test.JUNIT)
+    testImplementation(Dependencies.Test.MOCKK)
+    testImplementation(Dependencies.Test.ROBOELECTRIC)
+    androidTestImplementation(Dependencies.Test.TRUTHY)
+    androidTestImplementation(Dependencies.Test.JUNIT_EXT)
+    androidTestImplementation(Dependencies.Test.ESPRESSO)
+    androidTestImplementation(Dependencies.Test.CORE_TESTING)
+
     implementation(Dependencies.Room.RUNTIME)
     implementation(Dependencies.Room.KTX)
     kapt(Dependencies.Room.COMPILER)
 
+    implementation(Dependencies.Util.TIMBER)
+
+    implementation(project(":domain"))
 }

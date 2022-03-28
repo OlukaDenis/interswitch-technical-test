@@ -20,16 +20,40 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.data.local
+package com.mcdenny.domain.usecases
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.mcdenny.domain.model.ItemFee
+import com.mcdenny.domain.repository.LocalRepository
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.impl.annotations.MockK
+import kotlinx.coroutines.runBlocking
+import org.junit.Before
+import org.junit.Test
 
-@TypeConverters(Converters::class)
-@Database(entities = [ItemFee::class], version = 1, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
+class ClearItemFeesUseCaseTest {
 
-    abstract fun itemFeeDao(): ItemFeeDao
+    private lateinit var clearItemFeesUseCase: ClearItemFeesUseCase
+
+    @MockK
+    lateinit var repository: LocalRepository
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this, relaxUnitFun = true)
+        clearItemFeesUseCase = ClearItemFeesUseCase(repository)
+    }
+
+    @Test
+    fun test_clearItemFees() = runBlocking {
+        // Given
+        coEvery { repository.clearItemFees() } returns Unit
+
+        // When
+        clearItemFeesUseCase()
+
+        // Then
+        coVerify { repository.clearItemFees() }
+
+    }
 }

@@ -22,9 +22,9 @@
 
 package com.mcdenny.data.remote.mappers
 
-import com.mcdenny.interswitchtechnicaltest.data.BaseMapper
-import com.mcdenny.interswitchtechnicaltest.data.remote.model.RemoteItemFee
-import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
+import com.mcdenny.data.BaseMapper
+import com.mcdenny.data.remote.model.RemoteItemFee
+import com.mcdenny.domain.model.ItemFee
 import javax.inject.Inject
 
 class RemoteItemFeeMapper @Inject constructor(

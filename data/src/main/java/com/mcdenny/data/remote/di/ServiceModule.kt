@@ -22,7 +22,7 @@
 
 package com.mcdenny.data.remote.di
 
-import com.mcdenny.interswitchtechnicaltest.data.remote.ApiService
+import com.mcdenny.data.remote.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

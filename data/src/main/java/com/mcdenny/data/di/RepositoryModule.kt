@@ -23,11 +23,12 @@
 
 package com.mcdenny.data.di
 
+import com.mcdenny.data.local.impl.LocalRepositoryImpl
 import com.mcdenny.data.remote.impl.RemoteRepositoryImpl
-import com.mcdenny.interswitchtechnicaltest.data.local.impl.LocalRepositoryImpl
-import com.mcdenny.interswitchtechnicaltest.data.remote.impl.RemoteRepositoryImpl
-import com.mcdenny.interswitchtechnicaltest.domain.repository.LocalRepository
-import com.mcdenny.interswitchtechnicaltest.domain.repository.RemoteRepository
+import com.mcdenny.data.remote.impl.UtilRepositoryImpl
+import com.mcdenny.domain.repository.LocalRepository
+import com.mcdenny.domain.repository.RemoteRepository
+import com.mcdenny.domain.repository.UtilRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -46,5 +47,9 @@ interface RepositoryModule {
     @Singleton
     @Binds
     fun bindLocalRepository(impl: LocalRepositoryImpl): LocalRepository
+
+    @Singleton
+    @Binds
+    fun bindUtilRepository(impl: UtilRepositoryImpl): UtilRepository
 
 }

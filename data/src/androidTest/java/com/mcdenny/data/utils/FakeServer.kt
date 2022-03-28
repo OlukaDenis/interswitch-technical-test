@@ -20,16 +20,39 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.data.local
+package com.mcdenny.data.utils
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.mcdenny.domain.model.ItemFee
+import androidx.test.platform.app.InstrumentationRegistry
+import okhttp3.mockwebserver.MockWebServer
+import timber.log.Timber
+import java.io.IOException
+import java.io.InputStream
 
-@TypeConverters(Converters::class)
-@Database(entities = [ItemFee::class], version = 1, exportSchema = false)
-abstract class AppDatabase: RoomDatabase() {
+class FakeServer {
 
-    abstract fun itemFeeDao(): ItemFeeDao
+    private val mockWebServer = MockWebServer()
+    private val endPointSeparator = "/"
+//    private val findItemFeePath = endPointSeparator + "30112"
+//    private val itemNotFoundPath = endPointSeparator + "987654567"
+
+    val baseEndpoint get() = mockWebServer.url(endPointSeparator)
+
+    fun start() { mockWebServer.start(8080) }
+
+    val mockServer get() = mockWebServer
+
+    fun shutdown() {
+        mockWebServer.shutdown()
+    }
+
+    private fun getJson(path: String): String {
+        return try {
+            val context = InstrumentationRegistry.getInstrumentation().context
+            val jsonStream: InputStream = context.assets.open(path)
+            String(jsonStream.readBytes())
+        } catch (exception: IOException) {
+            Timber.e(exception, "Error reading network response json asset")
+            throw exception
+        }
+    }
 }
