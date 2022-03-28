@@ -31,7 +31,7 @@
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/spacing_50"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".presentation.ui.transfer.McashWalletFragment">
+        tools:context=".ui.transfer.McashWalletFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clTopBar"

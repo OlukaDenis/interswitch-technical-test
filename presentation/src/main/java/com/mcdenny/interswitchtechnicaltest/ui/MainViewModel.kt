@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.presentation.ui
+package com.mcdenny.interswitchtechnicaltest.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

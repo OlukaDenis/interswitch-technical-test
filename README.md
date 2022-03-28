@@ -57,7 +57,8 @@ Minimum API level is set to 21, so the presented approach is suitable for over 9
 2. In Android Studio, open the project from the local repository. This will auto-generate `local.properties` with the SDK location.
 3. Recommended: The project uses JDK11 to build the app and run the tests. Some tests won't pass on the JDK embedded in Android Studio (JDK8). You might want to set JAVA_HOME and JDK location in Android Studio to JDK11.
 4. Go to Tools → AVD Manager and create an emulated device or connect a physical device via ADB.
-2. Run.
+5. Run.
+6. Use these item fee ids; `30112`, `30122`, and `319726762` to test the search functionality
 
 **Notes:**
 

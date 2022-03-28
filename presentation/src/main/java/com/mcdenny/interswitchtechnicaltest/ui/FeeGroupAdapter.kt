@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.presentation.ui
+package com.mcdenny.interswitchtechnicaltest.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -28,7 +28,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mcdenny.domain.model.FeeGroup
 import com.mcdenny.interswitchtechnicaltest.databinding.LayoutItemGroupBinding
-import com.mcdenny.interswitchtechnicaltest.presentation.utils.formatDateTime
+import com.mcdenny.interswitchtechnicaltest.utils.formatDateTime
 
 class FeeGroupAdapter(
     private val list: List<FeeGroup>

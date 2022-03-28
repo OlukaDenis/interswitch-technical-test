@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.presentation.ui
+package com.mcdenny.interswitchtechnicaltest.ui
 
 import com.mcdenny.domain.model.ItemFee
 

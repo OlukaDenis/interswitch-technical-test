@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.presentation.ui
+package com.mcdenny.interswitchtechnicaltest.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -33,10 +33,10 @@ import com.google.android.material.snackbar.Snackbar
 import com.mcdenny.domain.model.ItemFee
 import com.mcdenny.interswitchtechnicaltest.R
 import com.mcdenny.interswitchtechnicaltest.databinding.ActivityMainBinding
-import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogClickLister
-import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.removeFocus
-import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.showBottomDialog
-import com.mcdenny.interswitchtechnicaltest.presentation.utils.formatDateTime
+import com.mcdenny.interswitchtechnicaltest.utils.DialogClickLister
+import com.mcdenny.interswitchtechnicaltest.utils.DialogUtils.removeFocus
+import com.mcdenny.interswitchtechnicaltest.utils.DialogUtils.showBottomDialog
+import com.mcdenny.interswitchtechnicaltest.utils.formatDateTime
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 

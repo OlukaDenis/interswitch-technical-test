@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package com.mcdenny.interswitchtechnicaltest.presentation.utils
+package com.mcdenny.interswitchtechnicaltest.utils
 
 import android.app.Activity
 import android.content.Context
