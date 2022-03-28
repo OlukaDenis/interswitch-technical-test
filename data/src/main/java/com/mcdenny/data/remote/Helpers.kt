@@ -22,17 +22,12 @@
 
 package com.mcdenny.data.remote
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.google.gson.Gson
 import com.mcdenny.domain.model.ErrorMessage
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatterBuilder
-import java.util.*
 
 /**
  * A helper method that extracts and formats the error returned from an endpoint
@@ -46,7 +41,7 @@ fun Throwable.resolveError(): String {
             "No internet access"
         }
         is UnknownHostException -> {
-            "No internet access"
+            "Unable to reach the server"
         }
 
         is HttpException -> {
