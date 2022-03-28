@@ -22,7 +22,7 @@
 
 package com.mcdenny.interswitchtechnicaltest.presentation.ui
 
-import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
+import com.mcdenny.domain.model.ItemFee
 
 sealed class ItemFeeState {
     object Initial: ItemFeeState()

@@ -23,20 +23,20 @@
 package com.mcdenny.interswitchtechnicaltest.presentation.ui
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.mcdenny.domain.model.ItemFee
 import com.mcdenny.interswitchtechnicaltest.R
-import com.mcdenny.interswitchtechnicaltest.data.remote.formatDateTime
 import com.mcdenny.interswitchtechnicaltest.databinding.ActivityMainBinding
-import com.mcdenny.interswitchtechnicaltest.domain.model.ItemFee
 import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogClickLister
 import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.removeFocus
 import com.mcdenny.interswitchtechnicaltest.presentation.utils.DialogUtils.showBottomDialog
+import com.mcdenny.interswitchtechnicaltest.presentation.utils.formatDateTime
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 

@@ -83,6 +83,8 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(Dependencies.Gradle.KOTLIN_STDLIB)
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
     implementation(Dependencies.AndroidX.CORE_KTX)
     implementation(Dependencies.AndroidX.APP_COMPAT)

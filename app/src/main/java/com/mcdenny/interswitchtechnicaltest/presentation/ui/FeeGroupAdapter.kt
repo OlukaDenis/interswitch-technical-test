@@ -26,9 +26,9 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mcdenny.interswitchtechnicaltest.data.remote.formatDateTime
+import com.mcdenny.domain.model.FeeGroup
 import com.mcdenny.interswitchtechnicaltest.databinding.LayoutItemGroupBinding
-import com.mcdenny.interswitchtechnicaltest.domain.model.FeeGroup
+import com.mcdenny.interswitchtechnicaltest.presentation.utils.formatDateTime
 
 class FeeGroupAdapter(
     private val list: List<FeeGroup>
